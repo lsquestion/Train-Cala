@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+
+
 T_Car_Weight=35
 M_Car_Weight=38
 T_Car_Num=2
@@ -29,7 +32,9 @@ Brake_Adhe=0.165 #制动粘着系数限制
 Acc_Aim1=[0,36,1.0]
 Acc_Aim2=[0,80,0.6]
 
-Speed_Aim=80
+Speed_Max=80
+Speed_Step=0.5
 
+Trac_Voltage=1500
 Cons_Power_Point=36.5
 Nature_Point=60
