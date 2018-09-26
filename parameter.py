@@ -36,5 +36,6 @@ Speed_Max=80
 Speed_Step=0.5
 
 Trac_Voltage=1500
-Cons_Power_Point=36.5
-Nature_Point=60
+
+Cons_Power_Point=36.3
+Nature_Point=60.2

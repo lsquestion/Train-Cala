@@ -15,16 +15,21 @@ Mass_Weight_AW1=Mass_Weight_AW0+(T_Car_Pa_AW1*T_Car_Num+M_Car_Pa_AW1*M_Car_Num)*
 Mass_Weight_AW2=Mass_Weight_AW0+(T_Car_Pa_AW2*T_Car_Num+M_Car_Pa_AW2*M_Car_Num)*Pa_Weight #列车AW2质量
 Mass_Weight_AW3=Mass_Weight_AW0+(T_Car_Pa_AW3*T_Car_Num+M_Car_Pa_AW3*M_Car_Num)*Pa_Weight #列车AW3质量
 
-Speed_list=list(np.arange(0,Speed_Max+Speed_Step,Speed_Step))
+
+Trac_Chara_point=[Cons_Power_Point,Nature_Point]
+Speed_list=List_comb(list(np.arange(0,Speed_Max+Speed_Step,Speed_Step)),Trac_Chara_point)
+
+
+
 
 Trac_chara_list=[]
 
-for i in Speed_list:
+for i in Speed_list:#需要一个统一的函数，以速度为统一标准进行计算，统一到一个维度里
 	Trac_chara_list.append(Trac_Chara(350,i,36,60))
 
 
 
-print(Trac_chara_list)
+print(Speed_list)
 
 
 
