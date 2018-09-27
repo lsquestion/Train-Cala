@@ -13,20 +13,31 @@ def Trac_Chara(Trac_kN,speed,Cons_Power_Point,Nature_Point):#牵引特性曲线�
 	Trac_kN=round(Trac_kN,2)
 	return Trac_kN
 		
-def Resistance_Calc(speed):#计算阻力
-	Res=0
+def Resistance_Calc(speed,Train_Weight,T_car_num,T_car_Axle,M_car_num,M_car_Axle,Slope=0):#计算阻力
+	C=0.129*(T_car_num*T_car_Axle+M_car_num*M_car_Axle)
+	C0=0.6378*0.1/9.81
+	C1=0.0091*0.1/9.81
+	C2=(38.083+6.285*(T_car_num+M_car_num))*0.000001*11.2
+	Res_Force=Train_Weight*(C0+C1*speed)+(C2*speed*speed)+(9.81*Slope*Train_Weight)/1000+C
+
+	return Res_Force
 
 
 def Slope_Res():#计算坡道阻力
+	pass
 
-def Acce_Calc(Trac_Force,Res_Force,)：#计算加速度
+def Acce_Calc(Trac_Force,Res_Force,Train_Weight,Mass_Rota):#计算加速度
+	a=(Trac_Force-Res_Force)/(Train_Weight+Mass_Rota)
+	return a
 
 def Ave_Acce():#计算平均加速度
+	pass
 
 def Adhesion_Calc():#计算黏着力
+	pass
 
 def Rescue_mode():
-	
+	pass
 
 
 def Trac_Point_voltage(L=[],Trac_Voltage=1500,voltage=1000):#根据电压计算牵引特性点
@@ -47,4 +58,4 @@ trac=Trac_Chara(350,51,36,60)
 
 point1,point2=Trac_Point_voltage([30,60])
 
-print(point1,point2)
+#print(point1,point2)
