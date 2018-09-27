@@ -4,7 +4,11 @@
 T_Car_Weight=35
 M_Car_Weight=38
 T_Car_Num=2
+T_Car_Axle_num=4
 M_Car_Num=4
+M_Car_Axle_num=4
+
+
 
 Pa_Weight=0.06
 T_Car_Pa_AW0=0
@@ -34,6 +38,7 @@ Acc_Aim2=[0,80,0.6]
 
 Speed_Max=80
 Speed_Step=0.5
+Time_Step=0.01
 
 Trac_Voltage=1500
 
