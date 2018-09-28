@@ -22,16 +22,37 @@ def Resistance_Calc(speed,Train_Weight,T_car_num,T_car_Axle,M_car_num,M_car_Axle
 
 	return Res_Force
 
-
-def Slope_Res():#计算坡道阻力
-	pass
-
 def Acce_Calc(Trac_Force,Res_Force,Train_Weight,Mass_Rota):#计算加速度
 	a=(Trac_Force-Res_Force)/(Train_Weight+Mass_Rota)
 	return a
 
-def Ave_Acce():#计算平均加速度
-	pass
+def Trac_Chara_time(Time_Step,Speed_point,weight,Mass_Rota,T_car_num,T_car_Axle,M_car_num,M_car_Axle):#对时间曲线，计算平均加速度
+	speed=0
+	a=0
+	Time=0
+	Trac_Chara_time_List=[]
+	while speed<=(Speed_point/3.6):
+		speed+=a*Time_Step
+		Time+=Time_Step
+		Trac_Force=Trac_Chara(370,speed*3.6,36,60)
+		Res_Force=Resistance_Calc(speed*3.6,weight,T_car_num,T_car_Axle,M_car_num,M_car_Axle)
+		a=Acce_Calc(Trac_Force,Res_Force,weight,Mass_Rota)
+		Ave_a=speed/Time
+		Trac_Chara_time_List.append([Time,speed,Trac_Force,Res_Force,a,Ave_a])
+
+	return Trac_Chara_time_List
+
+def Trac_Chara_speed(Speed_list,weight,Mass_Rota,T_Car_Num,T_Car_Axle_num,M_Car_Num,M_Car_Axle_num):
+	Trac_Chara_speed_List=[]
+	for i in Speed_list:#需要一个统一的函数，以速度为统一标准进行计算，统一到一个维度里
+		Trac_Force=Trac_Chara(370,i,36,60)
+		Res_Force=Resistance_Calc(i,weight,T_Car_Num,T_Car_Axle_num,M_Car_Num,M_Car_Axle_num)
+		acc=Acce_Calc(Trac_Force,Res_Force,weight,Mass_Rota)
+		Trac_Chara_speed_List.append([i,Trac_Force,Res_Force,acc])
+
+	return Trac_Chara_speed_List
+
+
 
 def Adhesion_Calc():#计算黏着力
 	pass

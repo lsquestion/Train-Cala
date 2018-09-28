@@ -19,26 +19,49 @@ Mass_Weight_AW3=Mass_Weight_AW0+(T_Car_Pa_AW3*T_Car_Num+M_Car_Pa_AW3*M_Car_Num)*
 Trac_Chara_point=[Cons_Power_Point,Nature_Point]
 Speed_list=List_comb(list(np.arange(0,Speed_Max+Speed_Step,Speed_Step)),Trac_Chara_point)
 
-Time_list=list(np.arange(0,50+Time_step,Time_step))
+Trac_Chara_speed_List=Trac_Chara_speed(Speed_list,Mass_Weight_AW2,Mass_Rota,T_Car_Num,T_Car_Axle_num,M_Car_Num,M_Car_Axle_num)
 
-for i in Time_list:
-	pass
-
-
-Trac_Chara_List=[]
+print(Trac_Chara_speed_List)
 
 
-	
+Trac_Chara_time_list=Trac_Chara_time(Time_Step,80,Mass_Weight_AW2,Mass_Rota,T_Car_Num,T_Car_Axle_num,M_Car_Num,M_Car_Axle_num)
+
+#print(ave_acc_list)
+
+#Time_list=list(np.arange(0,50+Time_step,Time_step))
+
+
+
+'''
+speed=0
+a=0
+Time=0
+while speed<=(40/3.6):
+	speed+=a*Time_Step
+	Time+=Time_Step
+	Trac_Force=Trac_Chara(370,speed*3.6,36,60)
+	Res_Force=Resistance_Calc(speed*3.6,Mass_Weight_AW2,T_Car_Num,T_Car_Axle_num,M_Car_Num,M_Car_Axle_num)
+	a=Acce_Calc(Trac_Force,Res_Force,Mass_Weight_AW2,Mass_Rota)
+
+Ave_acc=speed/(Time+0.2)
+#print(speed*3.6,Time,Ave_acc)	
+'''
+
+
+
+'''
+Trac_Chara_speed_List=[]
+
 for i in Speed_list:#需要一个统一的函数，以速度为统一标准进行计算，统一到一个维度里
 	Trac_Force=Trac_Chara(370,i,36,60)
 	Res_Force=Resistance_Calc(i,Mass_Weight_AW2,T_Car_Num,T_Car_Axle_num,M_Car_Num,M_Car_Axle_num)
 	acc=Acce_Calc(Trac_Force,Res_Force,Mass_Weight_AW2,Mass_Rota)
 
 
-	Trac_Chara_List.append([i,Trac_Force,Res_Force,acc])
+	Trac_Chara_speed_List.append([i,Trac_Force,Res_Force,acc])
 	
 
-print(Trac_Chara_List)
+#print(Trac_Chara_List)
 
-
+'''
 
