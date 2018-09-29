@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 from parameter import *
 from calc_func import *
 import numpy as np
+
+
 
 Mass_T_Weight=T_Car_Weight*T_Car_Num #拖车车重
 Mass_M_Weight=M_Car_Weight*M_Car_Num #动车车重
@@ -21,12 +24,12 @@ Speed_list=List_comb(list(np.arange(0,Speed_Max+Speed_Step,Speed_Step)),Trac_Cha
 
 Trac_Chara_speed_List=Trac_Chara_speed(Speed_list,Mass_Weight_AW2,Mass_Rota,T_Car_Num,T_Car_Axle_num,M_Car_Num,M_Car_Axle_num)
 
-print(Trac_Chara_speed_List)
+#print(Trac_Chara_speed_List)
 
 
 Trac_Chara_time_list=Trac_Chara_time(Time_Step,80,Mass_Weight_AW2,Mass_Rota,T_Car_Num,T_Car_Axle_num,M_Car_Num,M_Car_Axle_num)
 
-#print(ave_acc_list)
+print(Trac_Chara_time_list)
 
 #Time_list=list(np.arange(0,50+Time_step,Time_step))
 
