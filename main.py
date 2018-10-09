@@ -4,6 +4,9 @@
 from parameter import *
 from calc_func import *
 import numpy as np
+import matplotlib.pyplot as plt	
+#import xlwt
+#import xlrd
 
 
 
@@ -19,17 +22,16 @@ Mass_Weight_AW2=Mass_Weight_AW0+(T_Car_Pa_AW2*T_Car_Num+M_Car_Pa_AW2*M_Car_Num)*
 Mass_Weight_AW3=Mass_Weight_AW0+(T_Car_Pa_AW3*T_Car_Num+M_Car_Pa_AW3*M_Car_Num)*Pa_Weight #列车AW3质量
 
 
-Trac_Chara_point=[Cons_Power_Point,Nature_Point]
+Trac_Chara_point=Trac_Point_voltage([Cons_Power_Point,Nature_Point,Trac_Voltage])#计算特性点
+
 Speed_list=List_comb(list(np.arange(0,Speed_Max+Speed_Step,Speed_Step)),Trac_Chara_point)
 
 Trac_Chara_speed_List=Trac_Chara_speed(Speed_list,Mass_Weight_AW2,Mass_Rota,T_Car_Num,T_Car_Axle_num,M_Car_Num,M_Car_Axle_num)
 
-#print(Trac_Chara_speed_List)
-
 
 Trac_Chara_time_list=Trac_Chara_time(Time_Step,80,Mass_Weight_AW2,Mass_Rota,T_Car_Num,T_Car_Axle_num,M_Car_Num,M_Car_Axle_num)
 
-print(Trac_Chara_time_list)
+
 
 #Time_list=list(np.arange(0,50+Time_step,Time_step))
 
@@ -47,11 +49,9 @@ while speed<=(40/3.6):
 	a=Acce_Calc(Trac_Force,Res_Force,Mass_Weight_AW2,Mass_Rota)
 
 Ave_acc=speed/(Time+0.2)
-#print(speed*3.6,Time,Ave_acc)	
+#
+(speed*3.6,Time,Ave_acc)	
 '''
-
-
-
 '''
 Trac_Chara_speed_List=[]
 
