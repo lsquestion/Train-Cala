@@ -46,14 +46,14 @@ def Trac_Chara_speed(Speed_list,weight,Mass_Rota,T_Car_Num,T_Car_Axle_num,M_Car_
 		Trac_Force=Trac_Chara(370,i,36,60)
 		Res_Force=Resistance_Calc(i,weight,T_Car_Num,T_Car_Axle_num,M_Car_Num,M_Car_Axle_num)
 		acc=Acce_Calc(Trac_Force,Res_Force,weight,Mass_Rota)
-		Trac_Chara_speed_List.append([i,Trac_Force,Res_Force,acc])
+		Tracß_Chara_speed_List.append([i,Trac_Force,Res_Force,acc])
 	return Trac_Chara_speed_List
 
 
 
 def Adhesion_Calc():#计算黏着力
 	pass
-
+ßß
 def Rescue_mode():
 	pass
 
@@ -72,7 +72,7 @@ def List_comb(L1=None,L2=None):#把特性点组合速度列表中
 
 
 		
-trac=Trac_Chara(350,51,36,60)
+trac=Trac_Chara(350,51,36,60)#注意调整
 
 point1,point2=Trac_Point_voltage([30,60])
 
